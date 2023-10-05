@@ -128,6 +128,7 @@ function sayHi(name = 'anonim', age = 23) {
 
 
 const getWeekDay = (day) => {
+    if (day <= 0 || day > 31) return 'Incorrect day number'
     const dayNum = day % 7
     switch (dayNum) {
         case 1:
@@ -137,19 +138,15 @@ const getWeekDay = (day) => {
         case 3:
             return 'Среда'
         case 4:
-            dayName= 'Четверг'
-            break;
+            return 'Четверг'
         case 5:
-            dayName= 'Пятница'
-            break;
+            return 'Пятница'
         case 6:
-            dayName= 'Суббота'
-            break;
+            return 'Суббота'
         case 0:
-            dayName= 'Воскресенье'
-            break;
+            return 'Воскресенье'
         default:
-            console.error(`Can't write number`)
+            console.error(`Can't write day name, sorry`)
             break;
     }
 }
