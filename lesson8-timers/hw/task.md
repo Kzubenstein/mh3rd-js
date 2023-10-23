@@ -2,6 +2,7 @@
 ```
 const doNiceRomeNumber = (number) => {...}
 doNiceRomeNumber('IIIIIIII') ==>> 'VIII'
+doNiceRomeNumber('IIIIIIIII') ==>> 'IX'
 doNiceRomeNumber('IIIIIIIIIII') ==>> 'XI'
 ```
 
