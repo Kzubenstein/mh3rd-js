@@ -45,13 +45,17 @@ function convertToRim(num) {
   }
   
   console.log(convertToRoman(199));
+  console.log(convertToRoman(173));
+  console.log(convertToRoman(24));
+  // Отлично работает, сложновато читать код, комментарии сильно помогли
   
 
 // ## 2) Создайте функцию, которая при каждом вызове возвращает массив, в котором записано время каждого её вызова.
 // Проверьте её с помощью setTimeout или setInterval
 
 
-
+// // А вот тут расхождение с заданием, время каждого её вызова, а в 
+// // текущей функции выводится массив из одного элемента
 const timeCallReturn = () => {
   const currentDate = new Date();
   let timeCall = [];
@@ -62,25 +66,41 @@ const timeCallReturn = () => {
   return timeCall;
 };
 
-timeCallReturn();
+// // my version
+const callTimesCreator = () => {
+  const times = []
+  return () => {
+    const date = new Date()
+    times.push(date)
+    console.log(times)
+  }
+}
+const callTime = callTimesCreator()
+setInterval(callTime, 2000);
+// //
 
-setInterval(timeCallReturn, 5000);
+// timeCallReturn();
+// setInterval(timeCallReturn, 5000);
 
-// function getTimeArray() {
-//   const timeArray = [];
 
-//   function addTime() {
-//     const currentTime = new Date();
-//     timeArray.push(currentTime.toLocaleTimeString());
-//   }
+// // эта версия работает идеально
+function getTimeArray() {
+  const timeArray = [];
 
-//   setInterval(addTime, 5000);
+  function addTime() {
+    const currentTime = new Date();
+    timeArray.push(currentTime.toLocaleTimeString());
+  }
 
-//   return timeArray;
-// }
+  setInterval(addTime, 5000);
 
-// const result = getTimeArray();
-// console.log(result);
+  return timeArray;
+}
+const result = getTimeArray();
+console.log(result);
+
+
+// // Тут уже моё уважение
 
 //   ---------------------------------------------//
 // Функция для сохранения данных в localStorage
