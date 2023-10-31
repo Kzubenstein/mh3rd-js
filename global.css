@@ -17,7 +17,7 @@ body > * {
     overflow: hidden;
 }
 header, footer {
-    min-height: 50px;
+    height: 50px;
 }
 main {
     min-height: calc(100vh - 100px);
@@ -43,16 +43,34 @@ nav {
     font-size: 150%;
     gap: 10px;
 }
-nav > a {
+a {
     text-decoration: none;
     color: darkslategrey
 }
-nav > a:hover {
+a:hover {
     text-shadow: 1px 0;
 }
-nav > a:active {
+a:active {
     color: lightcoral
 }
-nav > a:visited {
+a:visited {
     color: lightslategray
+}
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+h1 {
+    text-align: center;
+}
+
+
+@media (max-width: 600px) {
+    header {
+        height: 0;
+    }
+    footer {
+        height: 100px;
+        flex-flow: column wrap;
+    }
 }
